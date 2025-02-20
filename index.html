@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新人小店 - 时光大爆炸兑换中心</title>
+    <style>
+        :root {
+            --primary: #1a73e8;     /* 主蓝 */
+            --secondary: #4285f4;   /* 辅助蓝 */
+            --accent: #34a853;      /* 强调绿 */
+            --bg: #ffffff;          /* 纯白背景 */
+            --text: #202124;        /* 深灰文字 */
+            --card-bg: #f8fbff;     /* 浅蓝卡片背景 */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', sans-serif;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* 头部样式 */
+        .header {
+            text-align: center;
+            padding: 3rem 0;
+            background: var(--primary);
+            border-radius: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .welcome {
+            font-size: 2.2rem;
+            color: white;
+            letter-spacing: 0.05em;
+            font-weight: 500;
+        }
+
+        /* 内容区块 */
+        .section {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(66,133,244,0.15);
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary);
+        }
+
+        /* 兑换码列表 */
+        .code-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 0.8rem;
+        }
+
+        .code-item {
+            background: white;
+            padding: 0.8rem;
+            border-radius: 0.5rem;
+            border: 1px solid rgba(66,133,244,0.2);
+            color: var(--primary);
+            font-weight: 500;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.95rem;
+        }
+
+        .code-item:hover {
+            background: #f1f8ff;
+            transform: translateY(-2px);
+            box-shadow: 0 2px 8px rgba(26,115,232,0.1);
+        }
+
+        /* 输入组 */
+        .input-group {
+            margin: 1.5rem 0;
+            display: flex;
+            gap: 0.8rem;
+            justify-content: center;
+        }
+
+        input {
+            padding: 0.6rem 1rem;
+            border: 1px solid var(--primary);
+            border-radius: 0.5rem;
+            width: 200px;
+            font-size: 0.9rem;
+        }
+
+        input:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(26,115,232,0.2);
+        }
+
+        button {
+            padding: 0.6rem 1.5rem;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+
+        button:hover {
+            background: #1557b0;
+        }
+
+        /* 页脚 */
+        .footer {
+            text-align: center;
+            padding: 1.5rem;
+            color: #5f6368;
+            font-size: 0.9rem;
+            margin-top: 2rem;
+        }
+
+        /* 提示框 */
+        .toast {
+            position: fixed;
+            bottom: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 0.5rem;
+            display: none;
+            font-size: 0.9rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            .welcome {
+                font-size: 1.8rem;
+            }
+            .code-list {
+                grid-template-columns: 1fr;
+            }
+            .input-group {
+                flex-direction: column;
+                align-items: center;
+            }
+            input {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 头部 -->
+        <header class="header">
+            <h1 class="welcome">欢迎光临新人小店</h1>
+        </header>
+
+        <!-- 当前兑换码 -->
+        <section class="section">
+            <h2>时光大爆炸兑换码</h2>
+            <div class="code-list">
+                <div class="code-item">VIP888</div>
+                <div class="code-item">VIP777</div>
+                <div class="code-item">VIP666</div>
+                <div class="code-item">DBZ888</div>
+                <div class="code-item">DBZ777</div>
+                <div class="code-item">DBZ666</div>
+                <div class="code-item">SGDBZZNCXKL</div>
+                <div class="code-item">CYLWSGDBZ4</div>
+            </div>
+            <p style="color: #5f6368; margin-top: 1rem; font-size: 0.9rem;">
+                ⚡ 每周自动更新，过期兑换码已去除
+            </p>
+        </section>
+
+        <!-- 新码获取 -->
+        <section class="section">
+            <h2>关注小店获取本周新码</h2>
+            <div class="input-group">
+                <input type="text" id="accessCode" placeholder="输入提取码 （关注小店后领取）">
+                <button onclick="checkAccessCode()">立即验证</button>
+            </div>
+            <div id="newCodes" style="display: none;">
+                <div class="code-list">
+                    <div class="code-item">SGDBZZYFL584</div>
+                </div>
+                <p style="color: #5f6368; margin-top: 1rem; font-size: 0.9rem;">
+                    📅 有效期至2025.2.22
+                </p>
+            </div>
+        </section>
+
+        <!-- 往期兑换码 -->
+        <section class="section">
+            <h2 style="cursor: pointer;" onclick="toggleExpired()">
+                往期兑换码 ▼
+            </h2>
+            <div class="expired-codes" id="expiredCodes" style="display: none;">
+                <p style="color: #9aa0a6;">往期兑换码均已过期，仅作留存记录所用</p>
+                <p style="color: #9aa0a6;">FAYE666</p>
+                <p style="color: #9aa0a6;">X86888</p>
+                <p style="color: #9aa0a6;">FAYE666</p>
+                <p style="color: #9aa0a6;">YSGWXC</p>
+                <p style="color: #9aa0a6;">SN666</p>
+                <p style="color: #9aa0a6;">XBSGDBZGZH</p>
+                <p style="color: #9aa0a6;">CYLWSGDBZ </p>
+                <p style="color: #9aa0a6;">CJSGDBZHL</p>
+                <p style="color: #9aa0a6;">SGDBZZYFL378</p>
+                <p style="color: #9aa0a6;">YXJYDYCTYYX</p>
+            </div>
+        </section>
+
+        <!-- 页脚 -->
+        <footer class="footer">
+            <p>©2025 新人小店 · 诚信经营 · 服务至上</p>
+            <p style="margin-top: 0.8rem;">⭐ 好评领取《时光大爆炸》独家攻略！</p>
+        </footer>
+
+        <!-- 提示框 -->
+        <div class="toast" id="toast"></div>
+    </div>
+
+    <script>
+        // 复制功能
+        document.querySelectorAll('.code-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const text = item.innerText;
+                navigator.clipboard.writeText(text)
+                    .then(() => showToast('已复制：' + text))
+                    .catch(() => showToast('复制失败，请手动选择'));
+            });
+        });
+
+        // 显示提示
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            toast.textContent = msg;
+            toast.style.display = 'block';
+            setTimeout(() => toast.style.display = 'none', 1500);
+        }
+
+        // 验证提取码
+        function checkAccessCode() {
+            const input = document.getElementById('accessCode');
+            if(input.value.toUpperCase() === 'THB7S') {
+                document.getElementById('newCodes').style.display = 'block';
+                showToast('验证成功！新兑换码已解锁');
+                input.value = '';
+            } else {
+                showToast('提取码错误，请重试');
+                input.focus();
+            }
+        }
+
+        // 切换往期兑换码
+        function toggleExpired() {
+            const container = document.getElementById('expiredCodes');
+            const isHidden = container.style.display !== 'block';
+            container.style.display = isHidden ? 'block' : 'none';
+        }
+    </script>
+</body>
+</html>
